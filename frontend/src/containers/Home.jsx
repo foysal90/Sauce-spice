@@ -67,10 +67,12 @@ const Home = () => {
                         <div class="price-add">
                             <div class="price">$15.99</div>
                            
-                            <button>Add +</button> 
-                            {/* <button>{counter}</button> */}
-                            {/* <button onClick={this.handleIncrement}>Add +</button>
-                            <button onClick={this.handleDescrement} disabled={count===0 ? true : false}>-</button>  */}
+                            <div>
+                            <button onClick={handleIncrement}>Add +</button> 
+                            <button>{counter}</button>
+
+                            <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
+                          </div>
                             
                         </div>
                     </div>
