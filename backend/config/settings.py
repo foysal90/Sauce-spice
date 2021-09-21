@@ -100,12 +100,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # }
 
 # Local Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dsfcf03271udm',
+        'HOST' : 'ec2-18-214-140-149.compute-1.amazonaws.com',
+        'PORT' : 5432,
+        'USER' : 'mfynqpbbliftrs',
+        'PASSWORD' : 'd27732aff78781ef085a7350fb338a517f7144d88e100d7469db95266fec262f'
     }
 }
+
 
 # Heroku PostgreSQL Database
 django_heroku.settings(locals())
@@ -155,12 +169,11 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-cloudinary.config(
-    cloud_name="techis",
-    api_key="886187759951178",
-    api_secret="WGcWrWfkPlxdOCdlFaLTdjSNtfo",
-    secure=True
-)
+cloudinary.config( 
+  cloud_name = "ds4pyxzfk", 
+  api_key = "313744642255259", 
+  api_secret = "qRg7hWQel27OnrYukGSqP36tSPg" 
+) 
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
