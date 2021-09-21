@@ -1,183 +1,84 @@
-import React, {  useState, useEffect } from "react";
-// import { useDispatch, useSelector} from "react-redux";
-import BackgroundImg from "../assets/img/background.png";
-import Icon from "../assets/img/icon.svg";
-import Img1 from "../assets/img/chicken-burger.jpeg";
-import Img2 from "../assets/img/CW.jpeg";
-import Img3 from "../assets/img/jalfrezi.webp";
-import Img4 from "../assets/img/tenders.jpeg";
-import Img5 from "../assets/img/beef-bhuna.jpeg";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/Common/Header";
+import Footer from "../components/Common/Footer";
 
+import Item from "../components/Common/Item";
+import { fetchItems } from "../reducks/items/operations";
+import { getItems } from "../reducks/items/selectors";
+import { getCarts, getSubtotal } from "../reducks/carts/selectors";
+import { fetchFromLocalStorage } from "../reducks/carts/operations";
+import ImgMainImage from "../assets/img/background.png";
+import queryString from "query-string";
 
 
 const Home = () => {
-    const [sendMenuCount, setSendMenuCount] = useState(-1);
-    const [counter, setCounter] = useState(0)
-    const handleIncrement = () => {
-        setCounter(counter +1)
+  const parsed = queryString.parse(window.location.search);
+  const [showWriteReview, setShowWriteReview] = useState(false);
+  const [showReviews, setShowReviews] = useState(false);
+  const [showCartList, setShowCartList] = useState(false);
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state);
+  const items = getItems(selector);
+  const carts = getCarts(selector);
+  const subtotal = getSubtotal(selector);
+
+  useEffect(() => {
+    dispatch(fetchFromLocalStorage());
+    dispatch(fetchItems(parsed.category));
+  }, []);
+
+  const showItem = (item) => {
+    let selected_count = 0;
+    if (carts[item.id] && carts[item.id].selected_count) {
+      selected_count = carts[item.id].selected_count;
     }
 
-    const handleDecrement = () => {
-        setCounter(counter - 1)
+    if (showCartList && carts[item.id] == undefined) {
+      // if the page is cart page and item is not slected, show nothing.
+      return;
     }
 
-
-
-
-
-
-
-
-
- 
+    return (
+      <li>
+        <Item key={item.id} item={item} selected_count={selected_count} setShowWriteReview={setShowWriteReview} setShowReviews={setShowReviews} />
+      </li>
+    );
+  };
 
   return (
+    <div class="home">
+      <Header />
 
-    <section>
-   
+      <section class="main-visual">
+        <img src={ImgMainImage} alt="" />
+      </section>
+      <section class="content">
+        {showCartList ? (
+          <>
+            <h1>Selected Items</h1>
+            <p>Please show this page to the waiter.</p>
+          </>
+        ) : (
+          <>
+            <h1>How to order?</h1>
+            <p>
+              Thank you for loading Sauce  Menu by QR code.
+              <br />
+              Now, you can select your items below and show your order to our waiter.
+            </p>
+            
+          </>
+        )}
+        <ul class="items">{items && items.map((item) => showItem(item))}</ul>
+      </section>
 
-       <section class="main-visual">
-        {<img src={BackgroundImg}/>}
-        <div class="text-area">
-            <span>Menu</span>
-            <div class="title">Sauce n spice</div>
-           
-        </div>
-        </section>
+      <Footer price={subtotal} showCartList={showCartList} setShowCartList={setShowCartList} />
 
-        <section class="content">
-
-        <h2>How to order?</h2>
-        <p>Thank you for loading Sauce n Spice Menu by QR <br/>
-            Now, you can select your items below and show your order to our waiter.</p>
-
-            <div class="title-search">
-                <h2>Select your order</h2>
-                <div class="search-box">
-                    <img src={Icon} />
-                    <input type="text" />
-                </div>
-            </div>
-
-            <ul>
-                <li>
-                    <img src={Img1} />
-                    <div class="right-area">
-                        <div class="title">chicken burger</div>
-                        <div class="price-add">
-                            <div class="price">$15.99</div>
-                           
-                            <div>
-                            <button onClick={handleIncrement}>Add +</button> 
-                            <button>{counter}</button>
-
-                            <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
-                          </div>
-                            
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <img src={Img2} />
-                    <div class="right-area">
-                        <div class="title">chicken wing</div>
-                        <div class="price-add">
-                            <div class="price">$19.99</div>
-                           
-                            <div>
-                                <button onClick={handleIncrement}> + </button>
-                                <button>{counter}</button>
-
-
-                                <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
-                               </div>
-                                
-                            
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <img src={Img3} />
-                    <div class="right-area">
-                        <div class="title">chicken jalfrezi</div>
-                        <div class="price-add">
-                            <div class="price">$19.99</div>
-                            
-                            <div>
-                                <button onClick={handleIncrement}> + </button>
-                                <button>{counter}</button>
-                                <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
-                               </div>
-                                
-                            
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <img src={Img4}/>
-                    <div class="right-area">
-                        <div class="title">chicken tenders</div>
-                        <div class="price-add">
-                            <div class="price">$15.99</div>
-                            
-                            <div>
-                                <button onClick={handleIncrement}> + </button>
-                                <button>{counter}</button>
-                                <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
-                               </div>
-                                
-                            
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <img src={Img5} />
-                    <div class="right-area">
-                        <div class="title">beef bhuna</div>
-                        <div class="price-add">
-                            <div class="price">$21.99</div>
-                           
-                            <div>
-                                <button onClick={handleIncrement}> + </button>
-                                <button>{counter}</button>
-                                <button onClick={handleDecrement} disabled={counter===0 ? true : false}> - </button>
-                               </div>
-                                
-                            
-                        </div>
-                    </div>
-                </li>
-
-
-
-               </ul>
-
-
-
-        </section>
-
-
-        <footer>
-        <div class="subtotal">
-            subtotal:<span class="price">$770</span>
-
-        </div>
-        <button>
-            <a href="../container/Complete.js" target="_black">Check Selected items</a>
-        </button>
-    </footer>
-
-      
-
-        </section>
-
-       
+      {/* {showWriteReview && <PopupWriteRevew setShowWriteReview={setShowWriteReview} />}
+      {showReviews && <PopupRevews setShowReviews={setShowReviews} />} */}
+    </div>
   );
-   
 };
 
 export default Home;

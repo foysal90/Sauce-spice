@@ -1,447 +1,386 @@
-/* common */
-body{
-    margin: 0;
-    font-family: "Avenir";
-    box-sizing: border-box;
+/****************************
+* Common
+*****************************/
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Hiragino Mincho ProN";
 }
 
-
-
-/* main */
-
-
-
-    .main-visual img {
-        width: 100%;
-    }
-
-    @media screen and (max-width:600px) {
-        .main-visual img {
-            width: 120%;
-        }
-    }
-
-     
-    .main-visual .text-area {
-        width: 100%;
-        background-color: #17151563;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 50px;
-    }
-
-    @media screen and (max-width:600px) {
-          
-    .main-visual .text-area {
-        width: 100%;
-        background-color: #17151563;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 25px;
-    }
-
-        
-    }
-
-   
-        
-    
-    
-    
-    .main-visual .text-area .title {
-        font-size: 70px;
-        font-weight: bold;
-    }
-
-    @media screen and (max-width:600px) {
-        .main-visual .text-area .title {
-            font-size: 25px;
-            font-weight: bold;
-            
-        }
-    
-        
-    }
-
-  
-        
-    
-    
-    
-
-
-
-/* content */
-.content{
-    padding: 20px 60px;
-    margin-bottom: 50px;
+h1 {
+  font-size: 30px;
 }
 
-@media screen and (max-width:600px) {
-    .content{
-        padding: 15px 40px;
-        margin-bottom: 50px;
-    }
+ul.category {
+  padding: 30px 0;
+  display: flex;
 }
 
-.content h2 {
-    font-size: 40px;
-    margin-bottom: 0;
+ul.category li {
+  list-style: none;
 }
 
-@media  screen and (max-width:600px) {
-
-    .content h2 {
-        font-size: 20px;
-        margin-bottom: 0;
-    }
-    
+ul.category li a,
+ul.category li a:visited {
+  border: 1px solid #707070;
+  padding: 6px 20px;
+  margin-right: 15px;
+  color: black;
+  text-decoration: none;
 }
 
-.content .title-search {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-    width: 100%;
+ul.category li.active a,
+ul.category li.active a:visited {
+  background-color: red;
+  color: white;
 }
 
-@media screen and (max-width:600px) {
-    .content .title-search {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-        width: 120%;
-    }
-    
-    
+.content {
+  padding: 0px 30px 100px 30px;
 }
 
-.content .title-search .search-box {
-    position: relative;
-    top: 50px;
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.content .title-search .search-box img {
-    position: absolute;
-    top: 10px;
-    left: 13px;
-    width: 22px;
+@media screen and (max-width: 500px) {
+  .content {
+    padding: 0px 15px 100px 15px;
+  }
 }
 
-.content .title-search input {
-    height: 20px;
-    padding: 8px 8px 8px 40px;
+/****************************
+* Items 
+*****************************/
+
+ul.items {
+  padding: 20px 0;
 }
 
-@media screen and (max-width:600px) {
-    .content .title-search input {
-        height: 20px;
-        padding: 8px 8px 8px 40px;
-        margin-bottom: 100px;
-    }
-    
+ul.items li {
+  list-style: none;
+  display: flex;
+  padding-bottom: 25px;
 }
 
-.content ul {
-    padding: 10px 0;
+ul.items li img.item-image {
+  width: 30%;
+  height: fit-content;
 }
 
-.content li {
-    padding: 10px 0;
-    list-style: none;
-    display: flex;
-    justify-content: left;
+ul.items li .info {
+  width: 70%;
+  position: relative;
+  padding: 5px 15px;
 }
 
-.content li img {
-    width: 25%;
+ul.items li .info .name {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-@media screen and (max-width:600px) {
-    .content li img {
-        width: 35%;
-    }
-    
+ul.items li .info .name-bottom {
+  padding: 10px 0;
+  display: flex;
 }
 
-.right-area {
-    padding-left: 20px;
-    width: 75%;
-    position: relative;
+ul.items li .info .name-bottom img.icon-heart {
+  width: 30px;
 }
 
-@media screen and (max-width:600px) {
-    .right-area {
-        padding-left: 10px;
-        width: 75%;
-        position: relative;
-    }
-    .title {
-        font-size: 10px;
-        font-weight: bold;
-    }
-    
+ul.items li .info .name-bottom .count {
+  padding: 3px 15px 0 10px;
 }
-.title {
-    font-size: 22px;
+
+ul.items li .info .name-bottom button.link-button {
+  background-color: white;
+  border: 0;
+  color: #38a1ed;
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+ul.items li .info .info-bottom {
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul.items li .info .info-bottom .price {
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+ul.items li .info .info-bottom .add {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 5px 25px;
+  cursor: pointer;
+}
+
+ul.items li .info .info-bottom .number {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+
+ul.items li .info .info-bottom .number .plus,
+ul.items li .info .info-bottom .number .minus,
+ul.items li .info .info-bottom .number .count {
+  padding: 3px;
+}
+
+ul.items li .info .info-bottom .number .plus,
+ul.items li .info .info-bottom .number .minus {
+  padding: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  ul.items {
+    padding: 0;
+  }
+
+  ul.items li .info .name {
     font-weight: bold;
-}
+    font-size: 14px;
+  }
 
-.price-add {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
+  ul.items li .info .name-bottom img.icon-heart {
+    width: 20px;
+  }
+
+  ul.items li .info .name-bottom .count {
+    padding: 7px 10px 0 5px;
+    font-size: 13px;
+  }
+
+  ul.items li .info .name-bottom button.link-button {
+    padding-right: 5px;
+    font-size: 13px;
+  }
+
+  ul.items li .info .info-bottom {
+    position: relative;
+    padding: 5px 0 0 0;
     left: 0;
-    width: 100%;
     bottom: 0;
+  }
+
+  ul.items li .info .info-bottom .price {
+    padding-top: 5px;
+    font-size: 15px;
+  }
+
+  ul.items li .info .info-bottom .add {
+    font-size: 14px;
+    padding: 0px 15px;
+    line-height: 24px;
+  }
+
+  ul.items li .info .info-bottom .number {
+    font-size: 14px;
+    padding: 0px 5px;
+    line-height: 24px;
+  }
 }
 
-@media screen and (max-width:600px) {
+/****************************
+* Header
+*****************************/
 
-    .price-add {
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        left: 0;
-        width: 130%;
-        bottom: 0;
-       
-        
-        top: 23px;
-    }
-    
+header img {
+  width: 150px;
+  padding: 10px;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    padding-left: 20px;
-}
-
-@media screen and (max-width:600px) {
-    .price {
-        font-size: 12px;
-        font-weight: bold;
-        padding-left: 10px;
-    }
-    
-    
-}
-.btn {
-    background-color: white;
-    border:1px solid black;
-    width: 15%;
-    height: 10%;
-    text-align: center;
-    
-    
-}
-
-.btn button {
-    background-color: white;
-    border: none;
-  
-  
-
-}
-
-@media screen and (max-width:1100px) {
-    .btn {
-        background-color: white;
-        border:1px solid black;
-        width: 15%;
-        height: 138%;
-        text-align: center;
-        margin-right: 70px;
-        margin-bottom: 30px;
-        
-        
-    }
-    
-    .btn button {
-        background-color: white;
-        border: none;
-        
-
-      
-      
-    
-    }
-    
-    
-}
-
-@media screen and (max-width:600px) {
-    .btn {
-        background-color: white;
-        border:1px solid black;
-        width: 25%;
-        height: 50%;
-        text-align: center;
-        margin-right: 30px;
-        /* margin-bottom: 30px; */
-        font-size: 10px;
-        
-        
-    }
-    
-    .btn button {
-        background-color: white;
-        border: none;
-        
-
-      
-      
-    
-    }
-    
-    
-}
-
-@media screen and (max-width:350px) {
-    .btn {
-        background-color: white;
-        border:1px solid black;
-        width: 25%;
-        height: 158%;
-        text-align: center;
-        margin-right: 10px;
-        margin-bottom: 30px;
-        
-        
-    }
-    
-    .btn button {
-        background-color: white;
-        border: none;
-        
-
-      
-      
-    
-    }
-    
-    
-}
-
-
-
-
-/* footer */
+/****************************
+* footer 
+*****************************/
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    background-color: white;
-    border-top: 1px solid #b9b9b9;
-    padding: 13px;
-
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0px;
+  background-color: white;
+  z-index: 2;
+  border: 1px solid gray;
+  width: 100%;
 }
 
 footer .subtotal {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: bold;
 }
 
 footer button {
-    font-size: 16px;
-    background-color: red;
-    padding: 15px;
-    font-weight: bold;
-    color: white;
-    border: 0;
-    margin-right: 50px;
-    border-radius: 5px;
-    text-decoration: none;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: red;
+  color: white;
+  border: 0;
+  padding: 15px 25px;
+  font-size: 15px;
+  font-family: "Hiragino Mincho ProN";
+  cursor: pointer;
 }
 
-footer button a {
-    color: white;
+footer button.link-button {
+  color: #1c7bfd;
+  background-color: white;
+  font-size: 20px;
+  padding: 5px 25px;
+  font-weight: bold;
 }
 
-footer a{
-    font-size: 16px;
-   
-    padding: 15px;
-    font-weight: bold;
-    color: blue;
-    border: 0;
-    margin-right: 50px;
-    border-radius: 5px;
-    text-decoration: none;
-    
+@media screen and (max-width: 500px) {
+  footer .subtotal {
+    font-size: 15px;
+  }
+  footer button.link-button {
+    font-size: 14px;
+  }
 }
 
+/****************************
+* Home
+*****************************/
 
-/* add food */
-.add-food{
-    
-    top: 170px;
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    right: 160px;
-    padding: 10px;
-    margin-right: 10px;
-    
-   
+.home .main-visual img {
+  width: 100%;
 }
 
-.add-food a {
-    text-decoration: none;
-    color: white;
-    font-size: 12px;
-    
-    
-    
+.home .main-visual img {
+  width: 100%;
 }
 
-.add-food button {
-    background-color: red;
-    border-style: none;
-    border-radius: 5px;
-    padding: 0 10px;
-    
+/****************************
+* Popup 
+*****************************/
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.514);
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.inp {
-    width: 50%;
-    text-align: center;
-    border-style: none;
-    border-radius: 5px;
-
+.popup .popup-content {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  padding: 0 20px;
+  max-height: 60%;
 }
 
-.dis {
-    font-size: 20px;
+.popup h2 {
+  font-size: 22px;
 }
 
-.des {
-    display: flex;
+.popup .cross {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  width: 30px;
+  cursor: pointer;
 }
 
-.des img {
-    width: 15%;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 25px;
+.popup ul.reactions {
+  display: flex;
+  padding: 0;
+  cursor: pointer;
 }
 
+.popup ul.reactions li {
+  list-style: none;
+  width: 20%;
+  margin-right: 2%;
+}
 
+.popup ul.reactions li img {
+  width: 100%;
+  opacity: 0.5;
+}
 
+.popup ul.reactions li img.selected {
+  opacity: 1;
+}
 
+.popup input {
+  width: 70%;
+  border-radius: 0;
+  border: 1px solid #707070;
+  padding: 8px;
+  margin: 0px 0 5px 0;
+  font-family: "Hiragino Mincho ProN";
+}
 
+.popup textarea {
+  width: 80%;
+  border-radius: 0;
+  border: 1px solid #707070;
+  padding: 8px;
+  margin: 10px 0;
+  font-family: "Hiragino Mincho ProN";
+  height: 100px;
+}
 
+.popup button {
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px 15px;
+  font-weight: bold;
+  font-family: "Hiragino Mincho ProN";
+  margin-bottom: 30px;
+}
+
+.popup ul.reviews {
+  padding: 0;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.popup ul.reviews li {
+  list-style: none;
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.popup ul.reviews li img {
+  width: 100px;
+}
+
+.popup ul.reviews .name {
+  font-size: 15px;
+}
+
+.popup ul.reviews .body {
+  font-size: 12px;
+  overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 500px) {
+  .popup .popup-content {
+    top: 20%;
+    left: 10%;
+    width: 76%;
+    padding: 0 4%;
+  }
+}
