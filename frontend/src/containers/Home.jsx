@@ -56,7 +56,7 @@ const Home = () => {
       <section class="content">
         {showCartList ? (
           <>
-            <h1>Selected Items</h1>
+            <h1>Selected Items to be shown</h1>
             <p>Please show this page to the waiter.</p>
           </>
         ) : (
