@@ -265,11 +265,127 @@ footer button.link-button {
   width: 100%;
 }
 
+/* main visual */
+
+
+.main-visual .text-area {
+  width: 100%;
+  background-color: #17151563;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 50px;
+}
+
+@media screen and (max-width:600px) {
+    
+.main-visual .text-area {
+  width: 100%;
+  background-color: #17151563;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 25px;
+}
+
+  
+}
+
+
+  
+
+
+
+.main-visual .text-area .title {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+@media screen and (max-width:600px) {
+  .main-visual .text-area .title {
+      font-size: 25px;
+      font-weight: bold;
+      
+  }
+
+  
+}
+
+
+/******* content *********/
+
+
+.content h2 {
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+@media  screen and (max-width:600px) {
+
+  .content h2 {
+      font-size: 20px;
+      margin-bottom: 0;
+  }
+  
+}
+
+.content .title-search {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 100%;
+}
+
+@media screen and (max-width:600px) {
+  .content .title-search {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      width: 120%;
+  }
+  
+  
+}
+
+.content .title-search .search-box {
+  position: relative;
+  top: 50px;
+}
+
+.content .title-search .search-box img {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  width: 22px;
+}
+
+.content .title-search input {
+  height: 20px;
+  padding: 8px 8px 8px 40px;
+}
+
+@media screen and (max-width:600px) {
+  .content .title-search input {
+      height: 20px;
+      padding: 8px 8px 8px 40px;
+      margin-bottom: 100px;
+  }
+  
+}
+
+  
+
 /****************************
 * Popup 
 *****************************/
 
-.popup {
+/* .popup {
   background-color: rgba(0, 0, 0, 0.514);
   position: fixed;
   z-index: 3;
@@ -383,4 +499,4 @@ footer button.link-button {
     width: 76%;
     padding: 0 4%;
   }
-}
+} */

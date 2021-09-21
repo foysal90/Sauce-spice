@@ -10,6 +10,7 @@ import { getCarts, getSubtotal } from "../reducks/carts/selectors";
 import { fetchFromLocalStorage } from "../reducks/carts/operations";
 import ImgMainImage from "../assets/img/background.png";
 import queryString from "query-string";
+import Icon from "../assets/img/icon.svg";
 
 
 const Home = () => {
@@ -52,6 +53,13 @@ const Home = () => {
 
       <section class="main-visual">
         <img src={ImgMainImage} alt="" />
+        <div class="text-area">
+            <span>Menu</span>
+            <div class="title">Sauce n spice</div>
+
+
+       </div>
+
       </section>
       <section class="content">
         {showCartList ? (
@@ -67,6 +75,16 @@ const Home = () => {
               <br />
               Now, you can select your items below and show your order to our waiter.
             </p>
+
+
+            <div class="title-search">
+                <h2>Select your order</h2>
+                <div class="search-box">
+                    <img src={Icon} alt=""/>
+                    <input type="text" />
+                </div>
+            </div>
+            
             
           </>
         )}
