@@ -58,10 +58,10 @@ export default class API {
   ////////////////////////////////
   // Item
   ////////////////////////////////
-  getItems = async (category) => {
+  getItems = async (name) => {
     let url = "/items";
-    if (category) {
-      url += "?category=" + category;
+    if (name) {
+      url += "?search=" + name;
     }
     const posts = await api
       .get(url)
