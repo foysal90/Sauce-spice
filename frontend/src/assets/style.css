@@ -353,12 +353,12 @@ footer button.link-button {
   
 }
 
-.content .title-search .search-box {
+.content .title-search .searchbox {
   position: relative;
   top: 50px;
 }
 
-.content .title-search .search-box img {
+.content .title-search .searchbox img {
   position: absolute;
   top: 10px;
   left: 13px;
