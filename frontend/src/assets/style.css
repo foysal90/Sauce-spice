@@ -199,6 +199,20 @@ ul.items li .info .info-bottom .number .minus {
   }
 }
 
+
+/* for ipad screen */
+
+@media screen and (max-width:1100px){
+
+  ul.items li img.item-image {
+    width: 20%;
+    height: 60%;
+    border-radius: 5px;
+  }
+  
+  
+}
+
 /****************************
 * Header
 *****************************/
