@@ -153,6 +153,12 @@ ul.items li .info .info-bottom .number .minus {
     font-size: 14px;
   }
 
+  ul.items li img.item-image {
+    width: 10%;
+    height: fit-content;
+  }
+  
+
   ul.items li .info .name-bottom img.icon-heart {
     width: 20px;
   }
