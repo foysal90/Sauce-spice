@@ -155,7 +155,8 @@ ul.items li .info .info-bottom .number .minus {
 
   ul.items li img.item-image {
     width: 20%;
-    height: 25px;
+    height: 60%;
+    border-radius: 5px;
   }
   
 
